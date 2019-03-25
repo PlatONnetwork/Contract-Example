@@ -79,7 +79,7 @@ java -jar Ptool-1.0-capsule.jar --method=genWallet --walletPath=.\ --walletPass=
 此时，pWASM目录下会生成build文件夹，同时在user目录下生成bidding目录，bidding目录会自动生成空代码文件biding.cpp。
 
 ### 编写合约代码
-修改bidding.cpp文件，将代码替换为`bidding/contract/bidding.cpp`。
+修改bidding.cpp文件，将代码替换为`contract\bidding.cpp`。
 
 ### 合约编译
 在`pWASM\build`中使用以下命令进行编译
@@ -111,7 +111,7 @@ java -jar Ptool-1.0-capsule.jar --method=deployContract --url=http://test-va.pla
 - 参数walletPath和walletPass需要根据`生成本地钱包`步骤实际生成结果进行替换
 
 ## bidding Dapp
-PlatON中可使用Java编写Dapp。目录`bidding\dapp`中可找到bidding Dapp源代码，可直接打开使用或按照以下步骤进行开发。
+PlatON中可使用Java编写Dapp。目录`dapp`中可找到bidding Dapp源代码，可直接打开使用或按照以下步骤进行开发。
 ### 创建Java工程
 使用Eclipse或其他Java开发工具创建Gradle工程。
 
