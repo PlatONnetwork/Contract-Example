@@ -1,0 +1,56 @@
+group 'net.platon'
+version '1.0'
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+        	url "https://plugins.gradle.org/m2/"
+    	}
+    }
+	dependencies {
+        classpath "us.kirchmeier:gradle-capsule-plugin:1.0.2"                   
+    }
+}
+
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'us.kirchmeier.capsule'
+
+version = '1.0'
+
+// JVM 版本号要求
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+// java编译的时候缺省状态下会因为中文字符而失败
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url "https://sdk.platon.network/nexus/content/groups/public/"
+    }
+    
+}
+
+//build跳过测试代码
+test {
+    exclude 'net/platon/**'
+}
+
+dependencies {
+    compile("com.platon.client:core:0.4.0"){
+        exclude group:'org.slf4j',module:'slf4j-log4j12'
+    }
+    compile("commons-cli:commons-cli:1.4")
+    compile("org.springframework:spring-core:4.2.0.RELEASE")
+}
+
+task buildMain(type: FatCapsule) {
+    applicationClass 'net.platon.bid.BidMain'
+    baseName 'BidMain'
+}
