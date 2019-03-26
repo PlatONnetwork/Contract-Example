@@ -18,7 +18,7 @@ The bid price is lower than (including equal to) z value, and the closest one is
 ## Building contract development environment
 ### Installing third-party toolkits
 Windows systems need to install the following third-party toolkits.
-- **cmake 3.0+ **
+- **cmake 3.0+**
 
   Building tool used to control the project compilation.
 
