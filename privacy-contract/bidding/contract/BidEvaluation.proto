@@ -1,0 +1,12 @@
+
+syntax = "proto3";
+option optimize_for = LITE_RUNTIME;
+
+package BidEvaluation;
+option java_package = "network.platon.bidevaluation";
+
+message Bidder {
+    int32   a = 1;
+    int32   b = 2;
+    int32   c = 3;
+}
