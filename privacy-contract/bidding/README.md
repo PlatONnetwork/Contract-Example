@@ -1,4 +1,3 @@
-[TOC]
 # Bidding privacy contract development on Linux
 
 
