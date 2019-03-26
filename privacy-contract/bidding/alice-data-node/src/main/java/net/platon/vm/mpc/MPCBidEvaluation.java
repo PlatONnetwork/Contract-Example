@@ -87,24 +87,9 @@ public class MPCBidEvaluation implements mpc_ii_6d894588b21dd56da2a3b971a61b6201
             network.platon.bidevaluation.BidEvaluation.Bidder.Builder builder = network.platon.bidevaluation.BidEvaluation.Bidder.newBuilder();
             // TODO: assemble data
 
-            List<Map<String, String>> lm = JDBCUtil.executeQuery("select * from t_bid_data where flag = 2 order by id asc limit 1");
-            if (lm.size() == 0) {
-                builder.setA(0);
-                builder.setB(0);
-                builder.setC(0);
-            } else {
-                Map<String, String> m = lm.get(0);
-                String id = m.get("id");
-                JDBCUtil.executeUpdate("update t_bid_data set flag = 1 where id = " + id);
-
-                String aInput = m.get("aInput");
-                String bInput = m.get("bInput");
-                String cInput = m.get("cInput");
-
-                builder.setA(Integer.parseInt(aInput == null ? "0" : aInput));
-                builder.setB(Integer.parseInt(bInput == null ? "0" : bInput));
-                builder.setC(Integer.parseInt(cInput == null ? "0" : cInput));
-            }
+            builder.setA(10);
+            builder.setB(50);
+            builder.setC(20);
             return builder.build().toByteArray();
         }
     }
@@ -116,17 +101,7 @@ public class MPCBidEvaluation implements mpc_ii_6d894588b21dd56da2a3b971a61b6201
         public byte[] inputImpl(final InputRequestPara para) {
             int ret_value = 0;
             // TODO: assemble data
-
-            List<Map<String, String>> lm = JDBCUtil.executeQuery("select * from t_bid_data where flag2 = 2 order by id asc limit 1");
-            if (lm.size() > 0) {
-                Map<String, String> m = lm.get(0);
-                String id = m.get("id");
-                JDBCUtil.executeUpdate("update t_bid_data set flag2 = 1 where id = " + id);
-
-                String pInput = m.get("pInput");
-
-                ret_value = Integer.parseInt(pInput == null ? "0" : pInput);
-            }
+            
             return Data.Int32(ret_value);
         }
     }
