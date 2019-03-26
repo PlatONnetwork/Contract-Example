@@ -107,7 +107,7 @@ $ git clone https://github.com/PlatONnetwork/Contract-Example.git
 ```
 ### Installing privacy contract development tools
 #### Downloading package
-Download the privacy contract development tool [installation package] (https://download.platon.network/0.5/platon-ubuntu-amd64-mpc-toolkit.tar.gz):
+Download the privacy contract development tool [installation package](https://download.platon.network/0.5/platon-ubuntu-amd64-mpc-toolkit.tar.gz):
 ```bash
 $ wget https://download.platon.network/0.5/platon-ubuntu-amd64-mpc-toolkit.tar.gz
 $ tar -xvzf platon-ubuntu-amd64-mpc-toolkit.tar.gz
@@ -272,7 +272,7 @@ Copy the wallet file of address `0x9a568e649c3a9d43b7f565ff2c835a24934ba447` , f
 Execute the following command to start the `Bob data node` service:
 
 ```
-Java -jar bob-data-node/target/bob-data-node-1.0.jar -iceCfgFile=./Execute the following command to start the service: -walletPath=60ceca9c1290ee56b98d4e160ef0453f7c40d219 -walletPass=11111111
+java -jar bob-data-node/target/bob-data-node-1.0.jar -iceCfgFile=./Execute the following command to start the service: -walletPath=60ceca9c1290ee56b98d4e160ef0453f7c40d219 -walletPass=11111111
 ```
 
 ### Running Alice data node
@@ -292,7 +292,7 @@ Copy the wallet file of address `0xce3a4aa58432065c4c5fae85106aee4aef77a115`, fo
 Execute the following command to start the `Alice data node` service:
 
 ```
-Java -jar alice-data-node/target/alice-data-node-1.0.jar -iceCfgFile=./Execute the service by executing the following command: -walletPath=ce3a4aa58432065c4c5fae85106aee4aef77a115 -walletPass=11111111
+java -jar alice-data-node/target/alice-data-node-1.0.jar -iceCfgFile=./Execute the service by executing the following command: -walletPath=ce3a4aa58432065c4c5fae85106aee4aef77a115 -walletPass=11111111
 ```
 
 ### Initiating bidding calculation
@@ -300,7 +300,7 @@ Java -jar alice-data-node/target/alice-data-node-1.0.jar -iceCfgFile=./Execute t
 Switch to the working directory `Contract-Example/privacy-contract/bidding` and execute the following command:
 
 ```bash
-java -jar dapp / target / dapp-1.0.jar --walletPath = ce3a4aa58432065c4c5fae85106aee4aef77a115 --walletPass = 111111 --url = "http: // localhost: 6789" --contractAddress = "0x43355c787c50b647c425f594b441d4bd75198888" --api = "startCalc (BidEvaluationResult )"
+java -jar dapp/target/dapp-1.0.jar --walletPath=ce3a4aa58432065c4c5fae85106aee4aef77a115 --walletPass=11111111 --url = "http:// localhost:6789" --contractAddress="0x43355c787c50b647c425f594b441d4bd75198888" --api="startCalc(BidEvaluationResult)"
 ```
 
 Successfully get a transaction, for example:
@@ -312,7 +312,7 @@ Successfully get a transaction, for example:
 Since the privacy calculation take a certain amount of time to get start, it takes about 20s to wait, and then we try to get the result as follows:
 
 ```bash
-java -jar dapp / target / dapp-1.0.jar --walletPath = ce3a4aa58432065c4c5fae85106aee4aef77a115 --walletPass = 111111 --url = "http: // localhost: 6789" --contractAddress = "0x43355c787c50b647c425f594b441d4bd75198888" --api = "getResultByTransactionID (45655c787c50b647c425f594b441d4bd75198888 )" --returnType=int --method=BidEvaluationResult
+java -jar dapp /target/dapp-1.0.jar --walletPath=ce3a4aa58432065c4c5fae85106aee4aef77a115 --walletPass=11111111 --url="http://localhost:6789" --contractAddress="0x43355c787c50b647c425f594b441d4bd75198888" --api = "getResultByTransactionID (45655c787c50b647c425f594b441d4bd75198888 )" --returnType=int --method=BidEvaluationResult
 ```
 
 Finally we get bidding result, for example:
