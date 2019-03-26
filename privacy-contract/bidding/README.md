@@ -68,7 +68,7 @@ After the installation, the executable files such as  `platon`, `ethkey` will be
 
 ### Building a private network
 
-Reference [PlatON Cluster Environment](zh-cn/basics/[Chinese-Simplified]-%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c#PlatON+%e9%9b% 86%e7%be%a4%e7%8e%af%e5%a2%83) to build a private network and connect compute nodes to the private network.
+Refer to [PlatON Cluster Environment](zh-cn/basics/[Chinese-Simplified]-%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c#PlatON+%e9%9b%86%e7%be%a4%e7%8e%af%e5%a2%83) to build a private network and connect compute nodes to the private network.
 
 ### Creating two wallet for data nodes
 
@@ -317,7 +317,7 @@ java -jar dapp /target/dapp-1.0.jar --walletPath=ce3a4aa58432065c4c5fae85106aee4
 
 Finally we get bidding result, for example:
 ```bash
-18000
+2
 ```
 
-During the bidding, the bidders' input are secure and will not reveal to any peers by the power of MPC protocol. Here comes the ending privacy bidding. Enjoy :)
+During the bidding, the bidders' input are secure and will not reveal to any peers by the power of MPC protocol. Here comes the ending of privacy bidding. Enjoy :)

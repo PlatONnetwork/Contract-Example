@@ -179,7 +179,7 @@ public class BidMain {
         //得到返回值
         result = sss.toString(10);
 		return result;
-	}
+	us}
 }
 ```
 注意，代码中：
