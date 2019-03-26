@@ -69,7 +69,7 @@ $ sudo apt-get -f install platon-all
 
 ### 创建数据节点钱包
 
-隐私计算包含两个计算参与方，分别创建2个钱包文件：
+隐私计算包含两个计算参与方，每个参与方分别创建钱包文件：
 
 ```bash
 $ mkdir -p data
@@ -85,7 +85,7 @@ Repeat passphrase:
 Address: {0xce3a4aa58432065c4c5fae85106aee4aef77a115}Copy to clipboardErrorCopied
 ```
 
-以上命令执行2次创建钱包操作，例如本次示例输出：：
+以上命令执行2次创建钱包操作，例如本次获得了两个钱包地址如下：
 
 > `0x9a568e649c3a9d43b7f565ff2c835a24934ba447`
 
@@ -93,7 +93,7 @@ Address: {0xce3a4aa58432065c4c5fae85106aee4aef77a115}Copy to clipboardErrorCopie
 
 ### 启用MPC功能
 
-参考[启用MPC计算功能](zh-cn/basics/[Chinese-Simplified]-%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c#%e4%b8%ba%e8%8a%82%e7%82%b9%e5%90%af%e7%94%a8MPC%e5%8a%9f%e8%83%bd)，在重启`platon`时候，将`-mpc.actor` 对应配置为上一步生成的数据节点钱包地址：`0x9a568e649c3a9d43b7f565ff2c835a24934ba447`,`0xce3a4aa58432065c4c5fae85106aee4aef77a115`。
+参考[启用MPC计算功能](zh-cn/basics/[Chinese-Simplified]-%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c#%e4%b8%ba%e8%8a%82%e7%82%b9%e5%90%af%e7%94%a8MPC%e5%8a%9f%e8%83%bd)，并且在重启`platon`时候，将`-mpc.actor` 对应配置为上一步生成的数据节点钱包地址：`0x9a568e649c3a9d43b7f565ff2c835a24934ba447`,`0xce3a4aa58432065c4c5fae85106aee4aef77a115`。
 
 ## 体验隐私bidding
 
@@ -171,7 +171,7 @@ $ bash ./compiler -c {your config file} -i {your privacy contract} -o {output di
 将克隆仓库的bidding隐私合约(`Contract-Example/privacy-contract/bidding/contract/BidEvaluation.cpp`)拷贝到`platon-mpc-toolkit/`，编译隐私合约:
 ```bash
 $ cd platon-mpc-toolkit
-$ bash compiler -c config.json.template -i BidEvaluation.cpp.cpp -o ./user
+$ bash compiler -c config.json.template -i BidEvaluation.cpp -o ./user
 ```
 执行输出:
 ```bash
@@ -250,7 +250,7 @@ alice-data-node/target/alice-data-node-1.0.jar
 dapp/target/dapp-1.0.jar
 ```
 
-### 开启Bob数据节点
+### 启动Bob数据节点
 
 切换到工作目录：`Contract-Example/privacy-contract/bidding`，修改配置文件如下：
 
@@ -270,7 +270,7 @@ TaskCallback.Proxy=tasksession:default -h localhost -p 10002
 java -jar bob-data-node/target/bob-data-node-1.0.jar -iceCfgFile=./执行以下命令启动服务： -walletPath=60ceca9c1290ee56b98d4e160ef0453f7c40d219 -walletPass=11111111
 ```
 
-### 开启Alice数据节点
+### 启动Alice数据节点
 
 切换到工作目录：`Contract-Example/privacy-contract/bidding`，修改配置文件如下：
 
@@ -310,3 +310,10 @@ java -jar dapp/target/dapp-1.0.jar --walletPath=ce3a4aa58432065c4c5fae85106aee4a
 java -jar dapp/target/dapp-1.0.jar --walletPath=ce3a4aa58432065c4c5fae85106aee4aef77a115 --walletPass=111111 --url="http://localhost:6789" --contractAddress="0x43355c787c50b647c425f594b441d4bd75198888" --api="getResultByTransactionID(45655c787c50b647c425f594b441d4bd75198888)" --returnType=int --method=BidEvaluationResult
 ```
 
+例如最后我们得到结果：
+
+```bash
+2
+```
+
+在竞标的过程中，所有竞标人的竞标值都是安全的、不会泄露给任何其他参与方，这些特性有MPC协议保证。这里我们来到了隐私竞标的结尾，祝愉快 :)
