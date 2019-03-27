@@ -46,7 +46,7 @@ Please refer to: [oracle official website](https://www.oracle.com/technetwork/ja
 
 - Maven3.3.9+
 
-Please refer to the [maven official website](http://maven.apache.org/download.cgi) to complete the installation.
+Please refer to: [maven official website](http://maven.apache.org/download.cgi) to complete the installation.
 
 ## Building a privacy computing network
 A privacy computing network with two computing nodes is built, where the computing nodes are all `PlatON` node clients.
@@ -69,7 +69,7 @@ After the installation, the executable files such as  `platon`, `ethkey` will be
 
 Refer to [PlatON Cluster Environment](zh-cn/basics/[Chinese-Simplified]-%e7%a7%81%e6%9c%89%e7%bd%91%e7%bb%9c#PlatON+%e9%9b%86%e7%be%a4%e7%8e%af%e5%a2%83) to build a private network and connect compute nodes to the private network.
 
-### Creating two wallet for data nodes
+### Creating two wallets for data nodes
 
 The privacy calculation consists of two computing participants, each of them creates a wallet file as follows:
 
@@ -319,4 +319,4 @@ Finally we get bidding result, for example:
 2
 ```
 
-During the bidding, the bidders' input are secure and will not reveal to any peers by the power of MPC protocol. Here comes the ending of privacy bidding. Enjoy :)
+During the bidding, the bidders' input are secure and will not reveal to any peers by the power of MPC protocol. Here comes the end of privacy bidding. Enjoy :)
