@@ -31,13 +31,13 @@ int BidEvaluationResult(Bidder bidder, int price) {
     
     emp::Integer arr[3] = {_a,_b,_c};
     int idx[3] = {1,2,3};
-    if((arr[0] - arr[1]).reveal_int() > 0) {emp::Integer t=arr[0];arr[0]=arr[1];arr[1]=t; int i=idx[0];idx[0]=idx[1];idx[1]=i;}
-    if((arr[1] - arr[2]).reveal_int() > 0) {emp::Integer t=arr[1];arr[1]=arr[2];arr[2]=t; int i=idx[1];idx[1]=idx[2];idx[2]=i;}
-    if((arr[0] - arr[1]).reveal_int() > 0) {emp::Integer t=arr[0];arr[0]=arr[1];arr[1]=t; int i=idx[0];idx[0]=idx[1];idx[1]=i;}
+    if(!(arr[1].geq(arr[0]).reveal())) {emp::Integer t=arr[0];arr[0]=arr[1];arr[1]=t; int i=idx[0];idx[0]=idx[1];idx[1]=i;}
+    if(!(arr[2].geq(arr[1]).reveal())) {emp::Integer t=arr[1];arr[1]=arr[2];arr[2]=t; int i=idx[1];idx[1]=idx[2];idx[2]=i;}
+    if(!(arr[1].geq(arr[0]).reveal())) {emp::Integer t=arr[0];arr[0]=arr[1];arr[1]=t; int i=idx[0];idx[0]=idx[1];idx[1]=i;}
     
     int i;
     for (i = 0; i<3; i++){
-        if ((arr[i] - _z).reveal_int() > 0) break;
+        if (!(_z.geq(arr[i]).reveal())) break;
     }
     
     printf(" idx: %d %d %d\n", idx[0], idx[1], idx[2]);
@@ -45,7 +45,7 @@ int BidEvaluationResult(Bidder bidder, int price) {
     
     if (i == 0) return 0; // all > z;
     i--;
-    if ((i > 0) && ((arr[i] - arr[i-1]).reveal_int() == 0)) return 0; // two or more bidders have the same price
+    if (i > 0 && arr[i].equal(arr[i-1]).reveal()) return 0; // two or more bidders have the same price
     return idx[i];
 }
 
